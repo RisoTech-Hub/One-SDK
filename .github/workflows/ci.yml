@@ -1,0 +1,62 @@
+name: CI
+
+# Enable Buildkit and let compose use it to speed up image building
+env:
+  DOCKER_BUILDKIT: 1
+  COMPOSE_DOCKER_CLI_BUILD: 1
+
+on:
+  pull_request:
+    branches: ['prod', 'main']
+    paths-ignore: ['docs/**']
+
+  push:
+    branches: ['prod']
+    paths-ignore: ['docs/**']
+
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  linter:
+    runs-on: home-package-linter
+    steps:
+      - name: Checkout Code Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: '**/riso/requirements/local.txt'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r riso/requirements/local.txt
+
+      - name: Run pre-commit
+        uses: pre-commit/action@v3.0.0
+
+  # With no caching at all the entire ci process takes 4m 30s to complete!
+  pytest:
+    runs-on: home-package-pytest
+
+    steps:
+      - name: Checkout Code Repository
+        uses: actions/checkout@v3
+
+      - name: Build the Stack
+        run: |
+          cp -R ./sdk ./riso/sdk
+          docker compose -f riso/ci.yml build
+
+      - name: Run DB Migrations
+        run: docker compose -f riso/ci.yml run --rm django python manage.py migrate
+
+      - name: Run Django Tests
+        run: docker compose -f riso/ci.yml run django pytest
+
+      - name: Tear down the Stack
+        run: docker compose -f riso/ci.yml down
