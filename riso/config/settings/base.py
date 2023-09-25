@@ -181,7 +181,7 @@ TEMPLATES = [
                 "django.template.context_processors.static",
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
-                "riso.users.context_processors.allauth_settings",
+                "sdk.allauth.context_processors.allauth_settings",
             ],
         },
     }
@@ -297,13 +297,13 @@ ACCOUNT_EMAIL_REQUIRED = True
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_ADAPTER = "riso.users.adapters.AccountAdapter"
+ACCOUNT_ADAPTER = "sdk.allauth.adapters.AccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/forms.html
-ACCOUNT_FORMS = {"signup": "riso.users.forms.UserSignupForm"}
+ACCOUNT_FORMS = {"signup": "sdk.allauth.forms.UserSignupForm"}
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-SOCIALACCOUNT_ADAPTER = "riso.users.adapters.SocialAccountAdapter"
+SOCIALACCOUNT_ADAPTER = "sdk.allauth.adapters.SocialAccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/forms.html
-SOCIALACCOUNT_FORMS = {"signup": "riso.users.forms.UserSocialSignupForm"}
+SOCIALACCOUNT_FORMS = {"signup": "sdk.allauth.forms.UserSocialSignupForm"}
 
 # django-rest-framework
 # -------------------------------------------------------------------------------

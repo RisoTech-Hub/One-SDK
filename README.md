@@ -19,6 +19,35 @@ Quick start
         ]
     ```
 
+2. Configure your settings.py
+
+    ``` python
+        # Add the following lines to your settings.py
+        TEMPLATES = [
+            {
+                "OPTIONS": {
+                    # https://docs.djangoproject.com/en/dev/ref/settings/#template-context-processors
+                    "context_processors": [
+                        ...
+                        "sdk.allauth.context_processors.allauth_settings",
+                    ],
+                },
+            },
+        ]
+    
+    # django-allauth
+    # ------------------------------------------------------------------------------
+    # https://django-allauth.readthedocs.io/en/latest/configuration.html
+    ACCOUNT_ADAPTER = "sdk.allauth.adapters.AccountAdapter"
+    # https://django-allauth.readthedocs.io/en/latest/forms.html
+    ACCOUNT_FORMS = {"signup": "sdk.allauth.forms.UserSignupForm"}
+    # https://django-allauth.readthedocs.io/en/latest/configuration.html
+    SOCIALACCOUNT_ADAPTER = "sdk.allauth.adapters.SocialAccountAdapter"
+    # https://django-allauth.readthedocs.io/en/latest/forms.html
+    SOCIALACCOUNT_FORMS = {"signup": "sdk.allauth.forms.UserSocialSignupForm"}
+
+    ```
+
 How to contribute
 =================
 
