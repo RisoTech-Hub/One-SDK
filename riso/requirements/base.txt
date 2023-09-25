@@ -22,3 +22,6 @@ djangorestframework==3.14.0  # https://github.com/encode/django-rest-framework
 django-cors-headers==4.2.0  # https://github.com/adamchainz/django-cors-headers
 # DRF-spectacular for api documentation
 drf-spectacular==0.26.4  # https://github.com/tfranzel/drf-spectacular
+
+diff-match-patch==20200713  # https://github.com/diff-match-patch-python/diff-match-patch
+django-guid==3.3.1  # https://github.com/snok/django-guid

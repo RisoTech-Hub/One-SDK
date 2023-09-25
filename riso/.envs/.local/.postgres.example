@@ -1,7 +1,8 @@
 # PostgreSQL
 # ------------------------------------------------------------------------------
-POSTGRES_HOST=postgres
-POSTGRES_PORT=5432
-POSTGRES_DB=riso
-POSTGRES_USER=dvTvIJBOFyRrhEwjeLoDftQYOhXhLdoX
-POSTGRES_PASSWORD=K2B1MwhQOQcGIMiyK4ZbpYYVblMjPfu8Z4nLY3dgZmfDUgRPEvSxUTzUGpnC4rlg
+POSTGRES_HOST=riso.one
+POSTGRES_PORT=25432
+POSTGRES_DB=riso-package
+POSTGRES_USER=binn
+POSTGRES_PASSWORD=password
+DATABASE_URL="postgres://binn:password@riso.one:25432/riso-package"
