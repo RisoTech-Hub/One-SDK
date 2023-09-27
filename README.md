@@ -19,7 +19,6 @@ Quick start
         ]
     ```
 
-
 Django Allauth
 --------------
 
@@ -78,6 +77,38 @@ Riso Sweet Message
     {% include 'messages/widget.html' %}
     </body>
     ```
+
+Django Object Actions
+---------------------
+
+1. Add "django_object_actions" to your INSTALLED_APPS setting like this::
+
+   ``` python
+        INSTALLED_APPS = [
+            ...,
+            "django_object_actions",
+        ]
+    ```
+
+2. Inherit your model from "sdk.contrib.admin.options" like this::
+
+   ``` python
+    from sdk.contrib.admin.options import GenericRelationAdmin, ModelAdmin, MasterModelAdmin
+    from django_object_actions import action
+   
+    @admin.register(MyModel)
+    class MyModelAdmin(ModelAdmin):
+        ...
+        @action(label="Publish", description="Submit this article")  # optional
+        def publish_this(self, request, obj):
+            pass
+    ```
+
+
+Django Object Actions
+---------------------
+
+
 
 How to contribute
 =================
