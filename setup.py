@@ -40,6 +40,7 @@ setup(
         "diff-match-patch==20200713",
         "django-model-utils==4.3.1",
         "django-guid==3.3.1",
-        "django-object-actions>=4.2.0"
+        "django-object-actions>=4.2.0",
+        "django-grappelli>=3.0.8"
     ],
 )

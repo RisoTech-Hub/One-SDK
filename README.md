@@ -108,7 +108,25 @@ Django Object Actions
 Django Object Actions
 ---------------------
 
+1. Add "grappelli" to your INSTALLED_APPS setting like this::
 
+    ``` python
+    INSTALLED_APPS = [
+        ...,
+        "grappelli",  # grappelli must be placed before django.contrib.admin.
+        "django.contrib.admin",
+    ]
+    ```
+
+2. Add "grappelli" to your urls.py setting like this::
+
+    ``` python
+    urlpatterns = [
+        ...,
+        path("grappelli/", include("grappelli.urls")),  # grappelli URLS
+        path("admin/", admin.site.urls),
+    ]
+    ```
 
 How to contribute
 =================

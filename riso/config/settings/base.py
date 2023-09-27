@@ -67,6 +67,7 @@ DJANGO_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # "django.contrib.humanize", # Handy template tags
+    "grappelli",
     "django.contrib.admin",
     "django.forms",
 ]
@@ -333,5 +334,10 @@ SPECTACULAR_SETTINGS = {
     "VERSION": "1.0.0",
     "SERVE_PERMISSIONS": ["rest_framework.permissions.IsAdminUser"],
 }
+
+# Django Grappelli
+# ------------------------------------------------------------------------------
+GRAPPELLI_ADMIN_TITLE = "Riso Package Admin"
+
 # Your stuff...
 # ------------------------------------------------------------------------------
