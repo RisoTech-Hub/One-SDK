@@ -1,11 +1,18 @@
+from django.conf import settings
 from django.contrib.admin import ModelAdmin as BaseModelAdmin
 from django.contrib.admin import TabularInline
 from django.contrib.contenttypes.models import ContentType
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 
+if "django_object_actions" in settings.INSTALLED_APPS:
+    from django_object_actions import DjangoObjectActions
+else:
+    class DjangoObjectActions:
+        pass
 
-class GenericRelationAdmin(BaseModelAdmin):
+
+class GenericRelationAdmin(DjangoObjectActions, BaseModelAdmin):
     def formfield_for_foreignkey(self, db_field, request, **kwargs):  # noqa
         if db_field.name == "content_type":
             if hasattr(self.model, "BASE_MODEL_ALLOWED"):
@@ -16,7 +23,7 @@ class GenericRelationAdmin(BaseModelAdmin):
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 
-class ModelAdmin(BaseModelAdmin):
+class ModelAdmin(DjangoObjectActions, BaseModelAdmin):
     ordering = ("-created",)
     readonly_fields = ("created", "modified")
 

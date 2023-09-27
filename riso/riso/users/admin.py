@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.contrib.auth import admin as auth_admin
 from django.contrib.auth import decorators, get_user_model
 from django.utils.translation import gettext_lazy as _
-
+from django_object_actions import DjangoObjectActions, action
 from riso.users.forms import UserAdminChangeForm, UserAdminCreationForm
 
 User = get_user_model()
@@ -15,7 +15,7 @@ if settings.DJANGO_ADMIN_FORCE_ALLAUTH:
 
 
 @admin.register(User)
-class UserAdmin(auth_admin.UserAdmin):
+class UserAdmin(DjangoObjectActions, auth_admin.UserAdmin):
     form = UserAdminChangeForm
     add_form = UserAdminCreationForm
     fieldsets = (
@@ -37,3 +37,8 @@ class UserAdmin(auth_admin.UserAdmin):
     )
     list_display = ["username", "name", "is_superuser"]
     search_fields = ["name"]
+    change_actions = ('publish_this',)
+
+    @action(label="Publish", description="Submit this article")  # optional
+    def publish_this(self, request, obj):
+        pass

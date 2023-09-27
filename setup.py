@@ -23,7 +23,6 @@ setup(
     packages=find_packages(exclude=["*tests*"]),
     classifiers=[
         "Development Status :: 4 - Beta",
-        "Environment ::  Web Environment",
         "Framework :: Django",
         "Framework :: Django :: 4.2",
         "Intended Audience :: Developers",
@@ -41,5 +40,6 @@ setup(
         "diff-match-patch==20200713",
         "django-model-utils==4.3.1",
         "django-guid==3.3.1",
+        "django-object-actions>=4.2.0"
     ],
 )
