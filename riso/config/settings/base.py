@@ -184,6 +184,9 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "sdk.allauth.context_processors.allauth_settings",
             ],
+            "builtins": [
+                "sdk.contrib.messages.templatetags.sweet_message",
+            ]
         },
     }
 ]

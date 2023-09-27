@@ -19,7 +19,11 @@ Quick start
         ]
     ```
 
-2. Configure your settings.py
+
+Django Allauth
+--------------
+
+1. Configure your settings.py
 
     ``` python
         # Add the following lines to your settings.py
@@ -46,6 +50,33 @@ Quick start
     # https://django-allauth.readthedocs.io/en/latest/forms.html
     SOCIALACCOUNT_FORMS = {"signup": "sdk.allauth.forms.UserSocialSignupForm"}
 
+    ```
+
+Riso Sweet Message
+------------------
+
+1. Add "messages" to your TEMPLATES setting like this::
+
+   ``` python
+        TEMPLATES = [
+            {
+                "OPTIONS": {
+                    "builtins": [
+                        "sdk.contrib.messages.templatetags.sweet_message",
+                    ]
+                },
+            },
+        ]
+    ```
+
+2. Add "messages" to your "base.html" like this
+
+    ```html
+        {% sweet_message_media True %} # If your template already add jquery and bootstrap, you can set this to False
+        </head>
+
+        {% include 'messages/widget.html' %}
+        </body>
     ```
 
 How to contribute
