@@ -37,7 +37,7 @@ setup(
     python_requires=">=3.11",
     install_requires=[
         "Django>=4.2.5,<5.0",
-        "diff-match-patch==20200713",
+        "diff-match-patch==20230430",
         "django-model-utils==4.3.1",
         "django-guid==3.3.1",
         "django-object-actions>=4.2.0",
