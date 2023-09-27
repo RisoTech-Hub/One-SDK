@@ -25,6 +25,7 @@
     <!-- Your stuff: Third-party CSS libraries go here -->
     <!-- This file stores project-specific CSS -->
     <link href="{% static 'css/project.css' %}" rel="stylesheet"/>
+    <link href="{% static 'keenicons/fonts/duotone/style.css' %}" rel="stylesheet">
   {% endblock css %}
   <!-- Le javascript
   ================================================== -->
@@ -91,7 +92,8 @@
   </nav>
 </div>
 <div class="container">
-
+  <a href="#" id="kt_app_engage_toggle_off" class="app-engage-btn app-engage-btn-toggle-off text-hover-primary p-0">
+					<i class="ki-duotone ki-cross fs-2x"><span class="path1"></span><span class="path2"></span></i>				</a>
   {% block content %}
     <p>Use this document as a way to quick start any new project.</p>
   {% endblock content %}

@@ -26,18 +26,18 @@ Django Allauth
 1. Configure your settings.py
 
     ``` python
-        # Add the following lines to your settings.py
-        TEMPLATES = [
-            {
-                "OPTIONS": {
-                    # https://docs.djangoproject.com/en/dev/ref/settings/#template-context-processors
-                    "context_processors": [
-                        ...
-                        "sdk.allauth.context_processors.allauth_settings",
-                    ],
-                },
+    # Add the following lines to your settings.py
+    TEMPLATES = [
+        {
+            "OPTIONS": {
+                # https://docs.djangoproject.com/en/dev/ref/settings/#template-context-processors
+                "context_processors": [
+                    ...
+                    "sdk.allauth.context_processors.allauth_settings",
+                ],
             },
-        ]
+        },
+    ]
     
     # django-allauth
     # ------------------------------------------------------------------------------
@@ -58,25 +58,25 @@ Riso Sweet Message
 1. Add "messages" to your TEMPLATES setting like this::
 
    ``` python
-        TEMPLATES = [
-            {
-                "OPTIONS": {
-                    "builtins": [
-                        "sdk.contrib.messages.templatetags.sweet_message",
-                    ]
-                },
+    TEMPLATES = [
+        {
+            "OPTIONS": {
+                "builtins": [
+                    "sdk.contrib.messages.templatetags.sweet_message",
+                ]
             },
-        ]
+        },
+    ]
     ```
 
 2. Add "messages" to your "base.html" like this
 
-    ```html
-        {% sweet_message_media True %} # If your template already add jquery and bootstrap, you can set this to False
-        </head>
+    ``` html
+    {% sweet_message_media True %} # If your template already add jquery and bootstrap, you can set this to False
+    </head>
 
-        {% include 'messages/widget.html' %}
-        </body>
+    {% include 'messages/widget.html' %}
+    </body>
     ```
 
 How to contribute
@@ -90,26 +90,25 @@ Getting Started
 1. Clone the repository
 
     ``` bash
-        # Run the following command in your terminal
-        pre-commit install
-        git update-index --assume-unchanged .idea/runConfigurations/* .idea/riso.iml
+    # Run the following command in your terminal
+    pre-commit install
+    git update-index --assume-unchanged .idea/runConfigurations/* .idea/riso.iml
     ```
-
 
 2. Prepare the environment, Create a virtual environment with Python 3.11 or higher and activate it. Then install the
    dependencies using pip:
 
     ``` bash
-        # Run the following command in your terminal
-        cd riso
-        pip install -r requirements.txt
+    # Run the following command in your terminal
+    cd riso
+    pip install -r requirements.txt
     ```
 
 3. Update following files
 
     ```
-        # .envs/.local/.django
-        # .envs/.local/.postgres
+    # .envs/.local/.django
+    # .envs/.local/.postgres
     ```
 
 4. Then using pycharm runConfiguration to start coding
@@ -120,7 +119,7 @@ Useful commands
 - Run test with coverage
 
     ``` bash
-        docker-compose -f riso/local.yml run --rm django pytest --cov --cov-report term-missing --cov-report html
+    docker-compose -f riso/local.yml run --rm django pytest --cov --cov-report term-missing --cov-report html
     ```
 
 Other information
