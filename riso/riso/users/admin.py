@@ -39,6 +39,7 @@ class UserAdmin(DjangoObjectActions, auth_admin.UserAdmin):
     search_fields = ["name"]
     change_actions = ('publish_this',)
 
+
     @action(label="Publish", description="Submit this article")  # optional
     def publish_this(self, request, obj):
         pass

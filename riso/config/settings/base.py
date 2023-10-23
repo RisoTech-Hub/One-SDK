@@ -66,7 +66,7 @@ DJANGO_APPS = [
     "django.contrib.sites",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    # "django.contrib.humanize", # Handy template tags
+    "django.contrib.humanize", # Handy template tags
     "grappelli",
     "django.contrib.admin",
     "django.forms",
@@ -83,7 +83,7 @@ THIRD_PARTY_APPS = [
     "corsheaders",
     "drf_spectacular",
     "django_object_actions",
-    "sdk"
+    "sdk",
 ]
 
 LOCAL_APPS = [
@@ -338,6 +338,6 @@ SPECTACULAR_SETTINGS = {
 # Django Grappelli
 # ------------------------------------------------------------------------------
 GRAPPELLI_ADMIN_TITLE = "Riso Package Admin"
-
+GRAPPELLI_SWITCH_USER = True
 # Your stuff...
 # ------------------------------------------------------------------------------
