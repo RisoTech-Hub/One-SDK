@@ -105,14 +105,16 @@ Django Object Actions
     ```
 
 
-Django Object Actions
----------------------
+Django One Grappelli
+--------------------
 
 1. Add "grappelli" to your INSTALLED_APPS setting like this::
 
     ``` python
     INSTALLED_APPS = [
         ...,
+        # "grappelli.saul",  Optional Metronic Saul theme
+        # "grappelli.dashboard",  Optional custom dashboard
         "grappelli",  # grappelli must be placed before django.contrib.admin.
         "django.contrib.admin",
     ]
