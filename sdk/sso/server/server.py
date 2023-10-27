@@ -156,8 +156,8 @@ class Server:
         user_data = {
             'username': user.username,
             'email': user.email,
-            'first_name': user.first_name,
-            'last_name': user.last_name,
+            'first_name': user.first_name if hasattr(user, 'first_name') else '',
+            'last_name': user.last_name if hasattr(user, 'last_name') else '',
             'is_staff': False,
             'is_superuser': False,
             'is_active': user.is_active,

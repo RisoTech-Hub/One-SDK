@@ -130,6 +130,65 @@ Django One Grappelli
     ]
     ```
 
+
+Django Single Sign On
+---------------------
+
+    As a Server
+
+
+1. Add "sdk.sso.server" to your INSTALLED_APPS setting like this::
+
+    ``` python
+    INSTALLED_APPS = [
+        ...,
+        "sdk.sso.server",
+    ]
+    ```
+
+2. Add "sdk.sso.server" to your urls.py setting like this::
+
+    ``` python
+    from sdk.sso.server.server import sso_server
+    urlpatterns = [
+        ...,
+        path("sso-server/", include(sso_server.get_urls())),
+    ]
+    ```
+
+3. Create a Client in Django Admin
+
+
+    As a Client
+
+
+1. Add "sdk.sso.client" to your INSTALLED_APPS setting like this::
+
+    ``` python
+    INSTALLED_APPS = [
+        ...,
+        "sdk.sso.client",
+    ]
+    ```
+   
+2. Add "sdk.sso.client" to your urls.py setting like this::
+
+    ``` python
+    from sdk.sso.client.client import sso_client
+    urlpatterns = [
+        ...,
+        path("sso-client/", include(sso_client.get_urls())),
+    ]
+    ```
+   
+3. Add SSO server config to your setting like this::
+
+    ``` python
+    SSO_PRIVATE_KEY = 'GEQE7hLKrK0itGpUnKWy9l13bZUO1JJBS3JtmcPC2PJI5A7c4rZA6N6IVzdEHQg1'
+    SSO_PUBLIC_KEY = 'e5PQzclB0I1pIAVPHl9sRfgk0wBNVILI8IGwLk6slP4z77k6ENdASalhK5K1mbp1'
+    SSO_SERVER = 'http://DOMAIN/sso-server/'
+    ```
+
 How to contribute
 =================
 

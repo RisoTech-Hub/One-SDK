@@ -10,6 +10,7 @@ from django.urls import re_path
 from django.views.generic import View
 from itsdangerous import URLSafeTimedSerializer
 
+from .settings import SSO_SERVER, SSO_PUBLIC_KEY, SSO_PRIVATE_KEY
 from ..webservices.sync import SyncConsumer
 
 
@@ -127,3 +128,6 @@ class Client:
             re_path(r'^$', self.login_view.as_view(client=self), name='riso-sso-login'),
             re_path(r'^authenticate/$', self.authenticate_view.as_view(client=self), name='riso-sso-authenticate'),
         ]
+
+
+sso_client = Client(SSO_SERVER, SSO_PUBLIC_KEY, SSO_PRIVATE_KEY)
