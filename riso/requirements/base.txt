@@ -27,3 +27,6 @@ diff-match-patch==20200713  # https://github.com/diff-match-patch-python/diff-ma
 django-guid==3.3.1  # https://github.com/snok/django-guid
 django-object-actions>=4.2.0  # https://github.com/crccheck/django-object-actions
 django-grappelli>=3.0.8  # https://github.com/sehmaschine/django-grappelli
+
+# SSO Dependencies
+itsdangerous<1.0.0  # https://pypi.org/project/itsdangerous/

@@ -2,7 +2,7 @@
 # ------------------------------------------------------------------------------
 POSTGRES_HOST=riso.one
 POSTGRES_PORT=25432
-POSTGRES_DB=riso-package
+POSTGRES_DB=riso-sdk
 POSTGRES_USER=binn
 POSTGRES_PASSWORD=password
-DATABASE_URL="postgres://binn:password@riso.one:25432/riso-package"
+DATABASE_URL="postgres://binn:password@riso.one:25432/riso-sdk"

@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.test import TestCase, override_settings
 
-from ..utils import get_field_diff, make_diffs, field_verbose_name
+from ..utils import field_verbose_name, get_field_diff, make_diffs
 
 User = get_user_model()
 
@@ -23,7 +23,7 @@ class TestLedgerUtils(TestCase):
             "student": True,
             "friends": ["John", "Peter"],
             "not_changed": "Noi dung khong thay doi",
-            "removed_field": "Noi dung bi xoa"
+            "removed_field": "Noi dung bi xoa",
         }
         new_json = {
             "name": "Noi dung sau khi thay doi",
@@ -33,7 +33,7 @@ class TestLedgerUtils(TestCase):
             "student": False,
             "friends": ["Mary"],
             "not_changed": "Noi dung khong thay doi",
-            "new_field": "Noi dung moi"
+            "new_field": "Noi dung moi",
         }
         diffs = make_diffs(old_json, new_json)
         changed_keys = [diff["key"] for diff in diffs]

@@ -8,6 +8,7 @@ from django.utils.translation import gettext_lazy as _
 if "django_object_actions" in settings.INSTALLED_APPS:
     from django_object_actions import DjangoObjectActions
 else:
+
     class DjangoObjectActions:
         pass
 

@@ -37,7 +37,7 @@ Django Allauth
             },
         },
     ]
-    
+
     # django-allauth
     # ------------------------------------------------------------------------------
     # https://django-allauth.readthedocs.io/en/latest/configuration.html
@@ -95,7 +95,7 @@ Django Object Actions
    ``` python
     from sdk.contrib.admin.options import GenericRelationAdmin, ModelAdmin, MasterModelAdmin
     from django_object_actions import action
-   
+
     @admin.register(MyModel)
     class MyModelAdmin(ModelAdmin):
         ...

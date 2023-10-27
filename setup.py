@@ -41,6 +41,7 @@ setup(
         "django-model-utils==4.3.1",
         "django-guid==3.3.1",
         "django-object-actions>=4.2.0",
-        "django-grappelli>=3.0.8"
+        "django-grappelli>=3.0.8",
+        "itsdangerous<1.0.0",
     ],
 )

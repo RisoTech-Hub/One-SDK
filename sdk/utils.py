@@ -1,4 +1,12 @@
+import string
+from random import SystemRandom
+
 from diff_match_patch import diff_match_patch
+from django.conf import settings
+
+random = SystemRandom()
+
+KEY_CHARACTERS = string.ascii_letters + string.digits
 
 
 def get_field_diff(old_value, new_value):
@@ -113,3 +121,12 @@ def field_verbose_name(model):
         except AttributeError:  # pragma: no cover
             pass
     return field_verbose_name_dict
+
+
+def default_gen_secret_key(length=40):
+    return "".join([random.choice(KEY_CHARACTERS) for _ in range(length)])
+
+
+def gen_secret_key(length=40):
+    generator = getattr(settings, "SIMPLE_SSO_KEYGENERATOR", default_gen_secret_key)
+    return generator(length)
