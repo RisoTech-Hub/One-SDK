@@ -119,6 +119,7 @@ class Client:
             for _attr, _val in user_data_tmp.items():
                 setattr(user, _attr, _val)
         except User.DoesNotExist:
+
             user = User(**user_data)
         user.set_unusable_password()
         user.save()

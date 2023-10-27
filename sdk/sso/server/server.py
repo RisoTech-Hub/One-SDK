@@ -89,8 +89,8 @@ class AuthorizeView(View):
             return self.access_denied()
 
     def handle_unauthenticated_user(self):
-        next = '%s?%s' % (self.request.path, urlencode([('token', self.token.request_token)]))
-        url = '%s?%s' % (reverse(self.server.auth_view_name), urlencode([('next', next)]))
+        return_url = '%s?%s' % (self.request.path, urlencode([('token', self.token.request_token)]))
+        url = '%s?%s' % (reverse(self.server.auth_view_name), urlencode([('next', return_url)]))
         return HttpResponseRedirect(url)
 
     def access_denied(self):
@@ -156,12 +156,11 @@ class Server:
         user_data = {
             'username': user.username,
             'email': user.email,
-            'first_name': user.first_name if hasattr(user, 'first_name') else '',
-            'last_name': user.last_name if hasattr(user, 'last_name') else '',
             'is_staff': False,
             'is_superuser': False,
             'is_active': user.is_active,
         }
+
         if extra_data:
             user_data['extra_data'] = self.get_user_extra_data(
                 user, consumer, extra_data)
