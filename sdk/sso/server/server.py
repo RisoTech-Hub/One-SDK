@@ -171,9 +171,11 @@ class Server:
         return [
             re_path(r'^request-token/$', provider_for_django(self.request_token_provider(server=self)),
                     name='riso-sso-request-token'),
-            re_path(r'^authorize/$', self.authorize_view.as_view(server=self), name='riso-sso-authorize'),
+            re_path(r'^authorize/$', self.authorize_view.as_view(server=self),
+                    name='riso-sso-authorize'),
             re_path(r'^verify/$', provider_for_django(
-                self.verification_provider(server=self)), name='riso-sso-verify'),
+                self.verification_provider(server=self)),
+                    name='riso-sso-verify'),
         ]
 
 

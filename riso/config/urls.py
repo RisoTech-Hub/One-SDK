@@ -7,9 +7,12 @@ from django.views.generic import TemplateView
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework.authtoken.views import obtain_auth_token
 
+from sdk.sso.server.server import sso_server
+
 urlpatterns = [
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
     path("about/", TemplateView.as_view(template_name="pages/about.html"), name="about"),
+    path("sso-server/", include(sso_server.get_urls())),
     # Django grappelli admin
     path("grappelli/", include("grappelli.urls")),
     # Django Admin, use {% url 'admin:index' %}

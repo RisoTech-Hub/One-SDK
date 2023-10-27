@@ -84,6 +84,7 @@ THIRD_PARTY_APPS = [
     "drf_spectacular",
     "django_object_actions",
     "sdk",
+    "sdk.sso.server",
 ]
 
 LOCAL_APPS = [

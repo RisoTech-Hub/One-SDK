@@ -1,9 +1,8 @@
 from copy import copy
 from urllib.parse import urlparse, urlunparse, urljoin, urlencode
 
-from django.contrib.auth import login
+from django.contrib.auth import login, get_user_model
 from django.contrib.auth.backends import ModelBackend
-from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.urls import NoReverseMatch, reverse
 from django.urls import re_path
@@ -12,6 +11,8 @@ from itsdangerous import URLSafeTimedSerializer
 
 from .settings import SSO_SERVER, SSO_PUBLIC_KEY, SSO_PRIVATE_KEY
 from ..webservices.sync import SyncConsumer
+
+User = get_user_model()
 
 
 class LoginView(View):
