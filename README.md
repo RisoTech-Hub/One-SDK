@@ -131,11 +131,8 @@ Django One Grappelli
     ```
 
 
-Django Single Sign On
----------------------
-
-    As a Server
-
+Django Single Sign On As a Server
+---------------------------------
 
 1. Add "sdk.sso.server" to your INSTALLED_APPS setting like this::
 
@@ -158,10 +155,13 @@ Django Single Sign On
 
 3. Create a Client in Django Admin
 
+    ```djangourlpath
+    http://DOMAIN/ADMIN_URL/server/consumer/
+    ```
 
 
-    As a Client
-
+Django Single Sign On As a Client
+---------------------------------
 
 1. Add "sdk.sso.client" to your INSTALLED_APPS setting like this::
 

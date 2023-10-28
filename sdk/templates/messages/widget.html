@@ -28,27 +28,15 @@
 {% if messages %}
   {% for message in messages %}
     <script>
-      {
-        %
-        if message.tags == "success" %
-      }
-      toastr.success("{{ message }}", "{% trans 'Success' %}");
-      {
-        % elif message.tags == "info" %
-      }
-      toastr.info("{{ message }}", "{% trans 'Info' %}");
-      {
-        % elif message.tags == "warning" %
-      }
-      toastr.warning("{{ message }}", "{% trans 'Warning' %}");
-      {
-        %
-        else %
-      }
-      toastr.error("{{ message }}", "{% trans 'Error' %}");
-      {
-        % endif %
-      }
+      {% if message.tags == "success" %}
+        toastr.success("{{ message }}", "{% trans 'Success' %}");
+      {% elif message.tags == "info" %}
+        toastr.info("{{ message }}", "{% trans 'Info' %}");
+      {% elif message.tags == "warning" %}
+        toastr.warning("{{ message }}", "{% trans 'Warning' %}");
+      {% else %}
+        toastr.error("{{ message }}", "{% trans 'Error' %}");
+      {% endif %}
     </script>
   {% endfor %}
 {% endif %}
