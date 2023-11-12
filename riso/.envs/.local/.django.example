@@ -3,18 +3,12 @@
 USE_DOCKER=yes
 IPYTHONDIR=/app/.ipython
 
-# Mail
-# ------------------------------------------------------------------------------
-EMAIL_HOST=riso.one
-
 # Redis
 # ------------------------------------------------------------------------------
-REDIS_URL=redis://:sky9redis@riso.one:26379/4
+REDIS_URL=redis://redis:6379/0
 
 # Celery
 # ------------------------------------------------------------------------------
-CELERY_BROKER_URL=redis://:sky9redis@riso.one:26379/4
-CELERY_NAMESPACE=CELERY_LOCAL
 
 # Flower
 CELERY_FLOWER_USER=binn
